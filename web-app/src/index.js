@@ -1,3 +1,4 @@
-const somevarname = setTimeout(() => {
-  alert("js stuff works");
-}, 5000);
+const alertBtn = document.querySelector("#alert-btn");
+alertBtn.addEventListener("click", () => {
+  alert("great clicking! good job!");
+});
