@@ -1,0 +1,25 @@
+{
+  "name": "js-wisdom",
+  "version": "1.0.0",
+  "description": "Examples of useful code knowledge.",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel web-app/src -d web-app/dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aharapu/js-wisdom.git"
+  },
+  "author": "Valentin Harapu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aharapu/js-wisdom/issues"
+  },
+  "homepage": "https://github.com/aharapu/js-wisdom#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.18.10",
+    "@babel/core": "^7.18.10",
+    "@babel/preset-env": "^7.18.10"
+  }
+}
