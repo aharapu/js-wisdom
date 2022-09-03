@@ -102,3 +102,6 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Deno
+deno_cache
