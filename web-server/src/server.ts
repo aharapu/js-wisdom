@@ -1,10 +1,9 @@
 import { Application } from "https://deno.land/x/oak@v11.1.0/mod.ts";
 
-const PORT = 3001;
-
 const app = new Application();
 
 const WEB_APP_SRC = Deno.env.get("WEB_APP_SRC");
+const PORT = parseInt(Deno.env.get("PORT") || "3001");
 
 app.use(async (context, next) => {
   try {

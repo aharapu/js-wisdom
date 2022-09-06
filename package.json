@@ -4,7 +4,8 @@
   "description": "Examples of useful code knowledge.",
   "main": "index.js",
   "scripts": {
-    "dev": "WEB_APP_SRC=\"/web-app/src\" ./start-server.sh",
+    "dev": "ENVIRONMENT=\"DEVELOPMENT\" ./start-server.sh",
+    "start": "ENVIRONMENT=\"PRODUCTION\" ./start-server.sh",
     "build": "mkdir -p ./web-app/dist && babel ./web-app/src --out-dir ./web-app/dist --copy-files --no-copy-ignored",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
