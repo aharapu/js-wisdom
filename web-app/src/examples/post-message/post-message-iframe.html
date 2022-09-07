@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>i am the iframe</div>
+    <section>
+      <label for="message">Message:</label>
+      <textarea id="message" type="text" rosws="4" cols="30"></textarea>
+    </section>
+    <button id="send-btn">SEND TO OPENER</button>
+    <script>
+      function sendMessage() {
+        const message = document.querySelector("#message").value;
+
+        console.log("message", message);
+
+        console.log("window", window);
+        targetWindow = window.parent;
+        console.log("targetWindow", targetWindow);
+        if (!targetWindow) alert("no parent window.. wat?!");
+
+        targetWindow.postMessage(message);
+      }
+      const btn = document.querySelector("#send-btn");
+      btn.addEventListener("click", sendMessage);
+    </script>
+  </body>
+</html>
