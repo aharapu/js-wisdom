@@ -3,6 +3,8 @@ const sendMsgBtn = document.querySelector("#send-message-button");
 const popupBtn = document.querySelector("#popup-btn");
 const receivedMsg = document.querySelector("#received-msg");
 
+console.log("script is loaded");
+
 function handleClick() {
   console.log("btn was clicked");
   const message = msgInputElem.value;
@@ -10,8 +12,9 @@ function handleClick() {
 }
 
 function openPopup() {
+  console.log("clicking button");
   window.open(
-    "http://localhost:3001/examples/post-message-popup.html",
+    "http://localhost:3001/examples/post-message/post-message-popup.html",
     "_blank"
   );
 }

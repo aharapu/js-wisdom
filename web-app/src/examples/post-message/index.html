@@ -5,19 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script src="./post-message.js" defer></script>
+    <script src="/examples/post-message/post-message.js" defer></script>
   </head>
   <body>
     <h1>post message example</h1>
     <input id="message-input" type="text" />
     <button id="send-message-button">send message</button>
     <div>
-      <!-- TODO -> see how to make it work using the anchor tag -->
-      <a href="./post-message-popup.html" target="_blank" rel="next">popup</a>
+      <!-- TODO : see how to make it work using the anchor tag -->
+      <a
+        href="/examples/post-message/post-message-popup.html"
+        target="_blank"
+        rel="open"
+        >popup</a
+      >
       <button id="popup-btn">popup v2</button>
     </div>
     <h3>Last received message:</h3>
     <p id="received-msg"></p>
+    <hr />
+    <h3>code samples</h3>
+    <p id="code-sample"></p>
+    <hr />
     <h4>reference reading</h4>
     <ul>
       <li>
