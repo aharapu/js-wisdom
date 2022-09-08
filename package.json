@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "ENVIRONMENT=\"DEVELOPMENT\" ./start-server.sh",
     "start": "ENVIRONMENT=\"PRODUCTION\" ./start-server.sh",
-    "build": "mkdir -p ./web-app/dist && babel ./web-app/src --out-dir ./web-app/dist --copy-files --no-copy-ignored",
+    "build": "mkdir -p ./web-app/dist && babel ./web-app/src --out-dir ./web-app/dist --copy-files --no-copy-ignored && ./build-config.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

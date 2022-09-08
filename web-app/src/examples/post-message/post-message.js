@@ -5,6 +5,9 @@ const sendMsgBtn = document.querySelector("#send-message-button");
 const popupBtn = document.querySelector("#popup-btn");
 const receivedMsg = document.querySelector("#received-msg");
 const codeSamplesContainer = document.querySelector("#code-samples");
+const iframe = document.querySelector("#post-msg-iframe");
+
+iframe.src = `${window.JS_WISDOM_HOST}/examples/post-message/post-message-iframe.html`;
 
 console.log("script is loaded");
 

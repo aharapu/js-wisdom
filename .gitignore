@@ -105,3 +105,6 @@ dist
 
 # Deno
 deno_cache
+
+# environment config
+*/src/config.js
