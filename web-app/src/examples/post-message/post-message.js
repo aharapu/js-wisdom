@@ -1,7 +1,10 @@
+import { CODE_SAMPLES } from "./code-samples.js";
+
 const msgInputElem = document.querySelector("#message-input");
 const sendMsgBtn = document.querySelector("#send-message-button");
 const popupBtn = document.querySelector("#popup-btn");
 const receivedMsg = document.querySelector("#received-msg");
+const codeSamplesContainer = document.querySelector("#code-samples");
 
 console.log("script is loaded");
 
@@ -25,6 +28,18 @@ popupBtn.addEventListener("click", openPopup);
 window.addEventListener("message", (event) => {
   console.log("message arrived");
   receivedMsg.textContent = event.data;
+});
+
+CODE_SAMPLES.forEach((sample) => {
+  const sampleTitlehtml = document.createElement("h6");
+  sampleTitlehtml.textContent = sample.name;
+
+  const sampleHtml = document.createElement("p");
+  sampleHtml.style = "border: 1px solid grey; background-color: lightgrey;";
+  sampleHtml.textContent = sample.content;
+
+  codeSamplesContainer.appendChild(sampleTitlehtml);
+  codeSamplesContainer.appendChild(sampleHtml);
 });
 
 /*
