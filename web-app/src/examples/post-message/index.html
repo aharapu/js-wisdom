@@ -62,5 +62,24 @@
         https://bluepnume.medium.com/every-known-way-to-get-references-to-windows-in-javascript-223778bede2d
       </li>
     </ul>
+    <hr />
+    <h4>lessons learned</h4>
+    <ol>
+      <li>
+        <p>
+          postMessage takes a second argument which is the target's url. a
+          <span style="background: lightgrey">*</span> can be used as a wildcard
+          but that is not recommended since your data is exposed to any site
+          that decides to be the opener and link to your page. it will work
+          without the second argument only if on the same domain.
+        </p>
+      </li>
+      <li>
+        <p>
+          when using the anchor tag, a rel="opener" must be provided, otherwise
+          the opened window will not have its window.opener be null
+        </p>
+      </li>
+    </ol>
   </body>
 </html>
