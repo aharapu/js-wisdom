@@ -108,3 +108,6 @@ deno_cache
 
 # environment config
 */src/config.js
+
+# secrets
+secrets.txt
