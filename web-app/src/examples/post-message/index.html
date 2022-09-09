@@ -16,15 +16,26 @@
     <h1>post message example</h1>
     <input id="message-input" type="text" />
     <button id="send-message-button">send message</button>
+    <hr />
     <div>
       <!-- TODO : see how to make it work using the anchor tag -->
       <a
         href="/examples/post-message/post-message-popup.html"
         target="_blank"
-        rel="open"
-        >popup</a
+        rel="opener"
+        style="border: 1px solid black"
+        >POP-UP Same Origin Using Anchor Tag</a
       >
-      <button id="popup-btn">popup v2</button>
+      <a
+        id="a-cross-org"
+        href="https://js-wisdom-post-message.surge.sh"
+        target="_blank"
+        rel="opener"
+        style="border: 1px solid black"
+        >POP-UP Cross Origin Using Anchor Tag</a
+      >
+      <button id="btn-popup-same-origin">POP-UP Same Origin</button>
+      <button id="btn-popup-cross-origin">POP-UP Cross Origin</button>
     </div>
     <hr />
     <h4>iframe</h4>

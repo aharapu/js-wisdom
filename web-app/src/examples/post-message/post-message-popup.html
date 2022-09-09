@@ -16,15 +16,15 @@
   <script>
     function sendMessage() {
       const message = document.querySelector("#message").value;
+      targetWindow = window.opener;
 
       console.log("message", message);
-
       console.log("window", window);
-      targetWindow = window.opener;
       console.log("targetWindow", targetWindow);
+
       if (!targetWindow) alert("not in same window group");
 
-      targetWindow.postMessage(message);
+      targetWindow.postMessage(message, "*");
     }
     const btn = document.querySelector("#send-btn");
     btn.addEventListener("click", sendMessage);

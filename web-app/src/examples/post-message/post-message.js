@@ -2,14 +2,13 @@ import { CODE_SAMPLES } from "./code-samples.js";
 
 const msgInputElem = document.querySelector("#message-input");
 const sendMsgBtn = document.querySelector("#send-message-button");
-const popupBtn = document.querySelector("#popup-btn");
 const receivedMsg = document.querySelector("#received-msg");
+const btnPopupSameOrg = document.querySelector("#btn-popup-same-origin");
+const btnPopupCrossOrg = document.querySelector("#btn-popup-cross-origin");
 const codeSamplesContainer = document.querySelector("#code-samples");
 const iframe = document.querySelector("#post-msg-iframe");
 
 iframe.src = `${window.JS_WISDOM_HOST}/examples/post-message/post-message-iframe.html`;
-
-console.log("script is loaded");
 
 function handleClick() {
   console.log("btn was clicked");
@@ -17,21 +16,26 @@ function handleClick() {
   console.log("current message is: ", message);
 }
 
-function openPopup() {
-  console.log("clicking button");
-  window.open(
-    "http://localhost:3001/examples/post-message/post-message-popup.html",
-    "_blank"
-  );
-}
-
 sendMsgBtn.addEventListener("click", handleClick);
-popupBtn.addEventListener("click", openPopup);
+btnPopupSameOrg.addEventListener("click", () =>
+  window.open(
+    `${window.JS_WISDOM_HOST}/examples/post-message/post-message-popup.html`,
+    "_blank"
+  )
+);
 
-window.addEventListener("message", (event) => {
-  console.log("message arrived");
-  receivedMsg.textContent = event.data;
-});
+btnPopupCrossOrg.addEventListener("click", () =>
+  window.open("https://js-wisdom-post-message.surge.sh", "_blank")
+);
+
+window.addEventListener(
+  "message",
+  (event) => {
+    console.log("message arrived");
+    receivedMsg.textContent = event.data;
+  },
+  false
+);
 
 CODE_SAMPLES.forEach((sample) => {
   const sampleTitlehtml = document.createElement("h6");
