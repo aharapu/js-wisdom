@@ -8,7 +8,6 @@ export const MESSAGES = [
     name: "Same Site Pop-Up",
     targetHost: window.JS_WISDOM_HOST,
     targetPath: "/examples/post-message/post-message-popup.html",
-    targetUrl: `${window.JS_WISDOM_HOST}/examples/post-message/post-message-popup.html`,
     windowLocation: WINDOW_LOCATION.popup,
   },
 ];
