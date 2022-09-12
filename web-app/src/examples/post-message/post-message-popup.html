@@ -25,7 +25,13 @@
 
       if (!targetWindow) alert("not in same window group");
 
-      targetWindow.postMessage(message, "*");
+      targetWindow.postMessage(
+        {
+          sourceId: 1,
+          message,
+        },
+        "*"
+      );
     }
     const btn = document.querySelector("#send-btn");
     btn.addEventListener("click", sendMessage);

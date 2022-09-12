@@ -12,7 +12,7 @@
       <label for="message" style="display: block">Message:</label>
       <textarea id="message" type="text" rosws="4" cols="30"></textarea>
     </section>
-    <button id="send-btn">SEND TO OPENER</button>
+    <button id="send-btn">Send Message</button>
     <p>Received message: <span id="received-msg"></span></p>
     <script>
       function sendMessage() {
@@ -25,7 +25,13 @@
         console.log("targetWindow", targetWindow);
         if (!targetWindow) alert("no parent window.. wat?!");
 
-        targetWindow.postMessage(message);
+        targetWindow.postMessage(
+          {
+            sourceId: 2,
+            message,
+          },
+          "*"
+        );
       }
       const btn = document.querySelector("#send-btn");
       btn.addEventListener("click", sendMessage);

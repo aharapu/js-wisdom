@@ -110,8 +110,8 @@ MESSAGES.forEach((m) => {
     "message",
     (event) => {
       console.log(`Message from ${event.origin} detected.`);
-      if (event.origin === m.targetHost) {
-        receivedMsg.textContent = "Received Message:" + event.data;
+      if (event.origin === m.targetHost && event.data.sourceId === m.id) {
+        receivedMsg.textContent = "Received Message:" + event.data.message;
       }
     },
     false
