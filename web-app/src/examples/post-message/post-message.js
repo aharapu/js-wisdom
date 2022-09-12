@@ -17,6 +17,8 @@ CODE_SAMPLES.forEach((sample) => {
 });
 
 // MESSAGES SECTION
+// TODO -> add a chat-like section to each container?
+//  step 1 would be listing the incoming messages in each window in a chat-box style
 MESSAGES.forEach((m) => {
   const container = document.createElement("div");
   container.style =
