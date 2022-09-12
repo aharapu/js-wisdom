@@ -21,14 +21,14 @@ export const MESSAGES = [
   {
     id: 3,
     name: "Cross Site Pop-Up",
-    targetHost: window.POST_MESSAGE_FOREIGN_HOST,
+    targetHost: window.JS_WISDOM_POST_MESSAGE_FOREIGN_HOST,
     targetPath: "",
     windowLocation: WINDOW_LOCATION.popup,
   },
   {
     id: 4,
     name: "Cross Site IFrame",
-    targetHost: window.POST_MESSAGE_FOREIGN_HOST,
+    targetHost: window.JS_WISDOM_POST_MESSAGE_FOREIGN_HOST,
     targetPath: "",
     windowLocation: WINDOW_LOCATION.iframe,
   },
