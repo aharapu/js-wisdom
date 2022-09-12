@@ -7,12 +7,13 @@
     <title>Document</title>
   </head>
   <body>
-    <div>i am the iframe</div>
+    <h5>i am the iframe</h5>
     <section>
-      <label for="message">Message:</label>
+      <label for="message" style="display: block">Message:</label>
       <textarea id="message" type="text" rosws="4" cols="30"></textarea>
     </section>
     <button id="send-btn">SEND TO OPENER</button>
+    <p>Received message: <span id="received-msg"></span></p>
     <script>
       function sendMessage() {
         const message = document.querySelector("#message").value;
@@ -28,6 +29,15 @@
       }
       const btn = document.querySelector("#send-btn");
       btn.addEventListener("click", sendMessage);
+
+      const receivedMsg = document.querySelector("#received-msg");
+      window.addEventListener(
+        "message",
+        (event) => {
+          receivedMsg.textContent = event.data;
+        },
+        false
+      );
     </script>
   </body>
 </html>

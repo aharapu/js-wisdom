@@ -80,8 +80,11 @@ MESSAGES.forEach((m) => {
   if (m.windowLocation === WINDOW_LOCATION.iframe) {
     const iframe = document.createElement("iframe");
     iframe.src = m.targetHost + m.targetPath;
-    iframe.style = "display: block; margin-bottom: 10px;";
-    targetWindow = iframe.contentWindow;
+    iframe.style =
+      "display: block; margin-bottom: 10px; width: 500px; height: 300px;";
+    iframe.onload = () => {
+      targetWindow = iframe.contentWindow;
+    };
 
     container.appendChild(iframe);
   }
