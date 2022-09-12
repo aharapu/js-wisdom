@@ -18,11 +18,8 @@
       function sendMessage() {
         const message = document.querySelector("#message").value;
 
-        console.log("message", message);
-
-        console.log("window", window);
         targetWindow = window.parent;
-        console.log("targetWindow", targetWindow);
+
         if (!targetWindow) alert("no parent window.. wat?!");
 
         targetWindow.postMessage(

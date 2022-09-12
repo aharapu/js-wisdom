@@ -19,10 +19,6 @@
       const message = document.querySelector("#message").value;
       targetWindow = window.opener;
 
-      console.log("message", message);
-      console.log("window", window);
-      console.log("targetWindow", targetWindow);
-
       if (!targetWindow) alert("not in same window group");
 
       targetWindow.postMessage(

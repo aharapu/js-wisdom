@@ -15,39 +15,6 @@
   <body>
     <h1>post messages</h1>
     <section id="section-messages"></section>
-    <input id="message-input" type="text" />
-    <button id="send-message-button">send message</button>
-    <hr />
-    <div>
-      <!-- TODO : see how to make it work using the anchor tag -->
-      <a
-        href="/examples/post-message/post-message-popup.html"
-        target="_blank"
-        rel="opener"
-        style="border: 1px solid black"
-        >POP-UP Same Origin Using Anchor Tag</a
-      >
-      <a
-        id="a-cross-org"
-        href="https://js-wisdom-post-message.surge.sh"
-        target="_blank"
-        rel="opener"
-        style="border: 1px solid black"
-        >POP-UP Cross Origin Using Anchor Tag</a
-      >
-      <button id="btn-popup-same-origin">POP-UP Same Origin</button>
-      <button id="btn-popup-cross-origin">POP-UP Cross Origin</button>
-    </div>
-    <hr />
-    <h4>iframe</h4>
-    <iframe
-      id="post-msg-iframe"
-      style="width: 400px; height: 250px; border: 2px solid black"
-      referrerpolicy="same-origin"
-    ></iframe>
-    <hr />
-    <h3>Last received message:</h3>
-    <p id="received-msg"></p>
     <hr />
     <h3>code samples</h3>
     <div id="code-samples"></div>
@@ -77,8 +44,11 @@
       </li>
       <li>
         <p>
-          when using the anchor tag, a rel="opener" must be provided, otherwise
-          the opened window will not have its window.opener be null
+          Setting target="_blank" on anchor elements implicitly provides the
+          same rel behavior as setting rel="noopener" which does not set
+          window.opener when using the anchor tag, a rel="opener" must be
+          provided, otherwise the opened window will not have its window.opener
+          be null
         </p>
       </li>
       <li>

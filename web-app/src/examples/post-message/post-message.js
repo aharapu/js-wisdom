@@ -1,43 +1,8 @@
 import { CODE_SAMPLES } from "./code-samples.js";
 import { MESSAGES, WINDOW_LOCATION } from "./messages.js";
 
-const msgInputElem = document.querySelector("#message-input");
-const sendMsgBtn = document.querySelector("#send-message-button");
-const receivedMsg = document.querySelector("#received-msg");
-const btnPopupSameOrg = document.querySelector("#btn-popup-same-origin");
-const btnPopupCrossOrg = document.querySelector("#btn-popup-cross-origin");
 const codeSamplesContainer = document.querySelector("#code-samples");
-const iframe = document.querySelector("#post-msg-iframe");
 const sectionMessages = document.querySelector("#section-messages");
-
-iframe.src = `${window.JS_WISDOM_HOST}/examples/post-message/post-message-iframe.html`;
-
-function handleClick() {
-  console.log("btn was clicked");
-  const message = msgInputElem.value;
-  console.log("current message is: ", message);
-}
-
-sendMsgBtn.addEventListener("click", handleClick);
-btnPopupSameOrg.addEventListener("click", () =>
-  window.open(
-    `${window.JS_WISDOM_HOST}/examples/post-message/post-message-popup.html`,
-    "_blank"
-  )
-);
-
-btnPopupCrossOrg.addEventListener("click", () =>
-  window.open("https://js-wisdom-post-message.surge.sh", "_blank")
-);
-
-window.addEventListener(
-  "message",
-  (event) => {
-    console.log("message arrived");
-    receivedMsg.textContent = event.data;
-  },
-  false
-);
 
 CODE_SAMPLES.forEach((sample) => {
   const sampleTitlehtml = document.createElement("h6");
@@ -51,15 +16,11 @@ CODE_SAMPLES.forEach((sample) => {
   codeSamplesContainer.appendChild(sampleHtml);
 });
 
-/*
-Note: Setting target="_blank" on <a> elements implicitly provides the same rel behavior as setting rel="noopener" which does not set window.opener. See browser compatibility for support status.
-*/
-
 // MESSAGES SECTION
 MESSAGES.forEach((m) => {
   const container = document.createElement("div");
   container.style =
-    "border: 2px solid black; margin-bottom: 15px; padding: 5px";
+    "border: 2px solid black; margin-bottom: 15px; padding: 5px; background: #eaebfc";
 
   const title = document.createElement("h4");
   title.textContent = m.name;
@@ -81,7 +42,7 @@ MESSAGES.forEach((m) => {
     const iframe = document.createElement("iframe");
     iframe.src = m.targetHost + m.targetPath;
     iframe.style =
-      "display: block; margin-bottom: 10px; width: 500px; height: 300px;";
+      "display: block; margin-bottom: 10px; width: 500px; height: 300px; background: #eafbfc";
     iframe.onload = () => {
       targetWindow = iframe.contentWindow;
     };
@@ -110,7 +71,6 @@ MESSAGES.forEach((m) => {
   window.addEventListener(
     "message",
     (event) => {
-      console.log(`Message from ${event.origin} detected.`);
       if (event.origin === m.targetHost && event.data.sourceId === m.id) {
         receivedMsg.textContent = "Received Message:" + event.data.message;
       }
