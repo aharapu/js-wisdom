@@ -58,7 +58,8 @@ Note: Setting target="_blank" on <a> elements implicitly provides the same rel b
 // MESSAGES SECTION
 MESSAGES.forEach((m) => {
   const container = document.createElement("div");
-  container.style = "border: 2px solid black;";
+  container.style =
+    "border: 2px solid black; margin-bottom: 15px; padding: 5px";
 
   const title = document.createElement("h4");
   title.textContent = m.name;
@@ -68,11 +69,21 @@ MESSAGES.forEach((m) => {
   if (m.windowLocation === WINDOW_LOCATION.popup) {
     const openPopupBtn = document.createElement("button");
     openPopupBtn.textContent = "Open Pop-Up";
+    openPopupBtn.style = "display: block; margin-bottom: 10px;";
     openPopupBtn.addEventListener("click", () => {
       targetWindow = window.open(m.targetHost + m.targetPath, "_blank");
     });
 
     container.appendChild(openPopupBtn);
+  }
+
+  if (m.windowLocation === WINDOW_LOCATION.iframe) {
+    const iframe = document.createElement("iframe");
+    iframe.src = m.targetHost + m.targetPath;
+    iframe.style = "display: block; margin-bottom: 10px;";
+    targetWindow = iframe.contentWindow;
+
+    container.appendChild(iframe);
   }
 
   const inputField = document.createElement("input");
