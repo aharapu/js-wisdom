@@ -12,6 +12,7 @@
       <textarea id="message" type="text" rosws="4" cols="30"></textarea>
     </section>
     <button id="send-btn">SEND TO OPENER</button>
+    <p>Received message: <span id="received-msg"></span></p>
   </body>
   <script>
     function sendMessage() {
@@ -24,9 +25,18 @@
 
       if (!targetWindow) alert("not in same window group");
 
-      targetWindow.postMessage(message, "*");
+      targetWindow.postMessage({ message, sourceId: 3 }, "*");
     }
     const btn = document.querySelector("#send-btn");
     btn.addEventListener("click", sendMessage);
+
+    const receivedMsg = document.querySelector("#received-msg");
+    window.addEventListener(
+      "message",
+      (event) => {
+        receivedMsg.textContent = event.data;
+      },
+      false
+    );
   </script>
 </html>

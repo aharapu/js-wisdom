@@ -106,6 +106,7 @@ MESSAGES.forEach((m) => {
 
   sectionMessages.appendChild(container);
 
+  // TODO -> move event listener outside of loop. currently adding too many listeners
   window.addEventListener(
     "message",
     (event) => {
