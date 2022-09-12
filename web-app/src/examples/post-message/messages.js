@@ -25,4 +25,11 @@ export const MESSAGES = [
     targetPath: "",
     windowLocation: WINDOW_LOCATION.popup,
   },
+  {
+    id: 4,
+    name: "Cross Site IFrame",
+    targetHost: window.POST_MESSAGE_FOREIGN_HOST,
+    targetPath: "",
+    windowLocation: WINDOW_LOCATION.iframe,
+  },
 ];

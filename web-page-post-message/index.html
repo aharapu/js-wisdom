@@ -17,15 +17,20 @@
   <script>
     function sendMessage() {
       const message = document.querySelector("#message").value;
-      targetWindow = window.opener;
 
-      console.log("message", message);
-      console.log("current window", window);
-      console.log("target window", targetWindow);
+      let targetWindow;
+      let sourceId;
+      if (inIframe()) {
+        targetWindow = window.parent;
+        sourceId = 4;
+      } else {
+        sourceId = 3;
+        targetWindow = window.opener;
+      }
 
       if (!targetWindow) alert("not in same window group");
 
-      targetWindow.postMessage({ message, sourceId: 3 }, "*");
+      targetWindow.postMessage({ message, sourceId }, "*");
     }
     const btn = document.querySelector("#send-btn");
     btn.addEventListener("click", sendMessage);
@@ -38,5 +43,13 @@
       },
       false
     );
+
+    function inIframe() {
+      try {
+        return window.self !== window.top;
+      } catch (e) {
+        return true;
+      }
+    }
   </script>
 </html>
