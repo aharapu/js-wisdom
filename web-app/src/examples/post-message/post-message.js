@@ -20,9 +20,11 @@ CODE_SAMPLES.forEach((sample) => {
 // TODO -> add a chat-like section to each container?
 //  step 1 would be listing the incoming messages in each window in a chat-box style
 MESSAGES.forEach((m) => {
+  // TODO -> split function into multiple smaller functions
   const container = document.createElement("div");
-  container.style =
-    "border: 2px solid black; margin-bottom: 15px; padding: 5px; background: #eaebfc";
+  container.className = "message-container";
+  // container.style =
+  // "border: 2px solid black; margin-bottom: 15px; padding: 5px; background: #eaebfc";
 
   const title = document.createElement("h4");
   title.textContent = m.name;
